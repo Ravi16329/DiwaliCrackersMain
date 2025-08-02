@@ -1,0 +1,210 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Layout */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Prevent wrapping */
+.search-container,
+#mainname,
+.nav-right,
+.date-box-wrapper {
+  flex-shrink: 0;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+    margin-left: 10px;
+  border-radius: 40px;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px 10px;
+  width: 180px;
+  border-radius: 20px;
+}
+
+.search-container button {
+  width: 35px;
+  height: 35px;
+  background-color: #9c98f3;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-container button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Brand Name */
+#mainname {
+  font-size: 50px;
+  font-weight: bold;
+  background: #72a893;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  display: inline-block;
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.4),
+    0 0 10px rgba(0, 255, 255, 0.3),
+    2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Buttons */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-right button {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 6px 10px;
+}
+
+/* Home Button */
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.home-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Date Box */
+.date-box-wrapper {
+  position: relative;
+  padding: 4px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.date-box-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(
+    red, orange, yellow, green, blue, indigo, violet, red
+  );
+  z-index: 0;
+  border-radius: 16px;
+  animation: rotateGradient 2s linear infinite;
+}
+
+@keyframes rotateGradient {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.date-box {
+  position: relative;
+  z-index: 1;
+  padding: 14px 28px;
+  border-radius: 12px;
+  background-color: white;
+  font-size: 18px;
+  display: flex;
+  gap: 8px;
+  min-width: 200px;
+  min-height: 60px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.date-box .day {
+  color: orangered;
+  font-weight: bold;
+}
+
+.date-box .month {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.date-box .year {
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Page Content Push */
+.content {
+  padding-top: 90px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #mainname {
+    font-size: 32px;
+  }
+
+  .search-container input {
+    width: 140px;
+  }
+
+  .date-box {
+    font-size: 16px;
+    padding: 10px 20px;
+    min-width: unset;
+  }
+}
